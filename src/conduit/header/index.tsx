@@ -1,13 +1,15 @@
-import React from "react";
+import React from 'react';
+import { COLOR } from '../../theme/color';
+import { TYPOGRAPHY } from '../../theme/typography';
 const navData = [
   {
-    title: "Home",
+    title: 'Home',
   },
   {
-    title: "Sign In",
+    title: 'Sign In',
   },
   {
-    title: "Sign Up",
+    title: 'Sign Up',
   },
 ];
 
@@ -15,27 +17,43 @@ export const Header = () => {
   return (
     <div
       style={{
-        top: "0px",
-        backgroundColor: "white",
-        display: "flex",
-
-        alignItems: "center",
-        justifyItems: "center",
+        padding: '8px 16px',
+        backgroundColor: COLOR.White,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        position: 'relative',
       }}
     >
       <div
         style={{
-          fontFamily: "Titillium-web",
-          marginRight: "32px",
-          color: " #5CB85C",
-          fontSize: "1.5rem",
+          ...TYPOGRAPHY.title.bold,
+          paddingLeft: '200px',
+          color: COLOR.LimeGreen,
+          cursor: 'pointer',
         }}
       >
         conduit
       </div>
-      {navData.map((data, index) => (
-        <div key={index}>{data.title}</div>
-      ))}
+      <div
+        style={{
+          ...TYPOGRAPHY.title.regular,
+          paddingRight: '200px',
+          display: 'flex',
+          alignItems: 'flex-start',
+        }}
+      >
+        {navData.map((data, index) => (
+          <div
+            style={{
+              paddingLeft: '32px',
+            }}
+            key={index}
+          >
+            {data.title}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
